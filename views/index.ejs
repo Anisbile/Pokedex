@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <title>PokeDex App</title>
+</head>
+<body>
+    <nav>
+        <a href="/pokemon/new">Create a New Pokemon</a>
+    </nav>
+    <h1>Pokemon</h1>
+    <ul>
+        <% for(let i = 0; i < allPokemons.length; i++) { %>
+            <li>
+                <a href="/Pokemon/<%=i%>">
+                    <%=allPokemons[i].name%>
+                </a>
+                
+                <form action='/pokemon/<%=i%>?_method=DELETE' method='POST'>
+                    <input type="Submit" value="Delete this Pokemon" />
+                </form>
+                <a href="/pokemon/<%=i%>/edit">Edit Pokemon</a>
+                <img src="<%= allPokemons[i].img %>" alt="" class="src">
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>
